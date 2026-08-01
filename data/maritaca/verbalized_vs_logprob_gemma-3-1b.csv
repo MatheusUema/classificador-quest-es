@@ -1,0 +1,390 @@
+id,ano,area,escolhido,label,acertou,conf_logprob,conf_verbal,verbal_motivo,verbal_raw,conf_ptrue,ptrue_metodo
+questao_02,2022,LC,C,D,False,0.967038,1.0,ok,"100 **Justificativa:** A resposta ""C""",,ausente
+questao_03,2022,LC,B,E,False,0.828818,1.0,ok,"100 **Justificativa:** A resposta ""B)",,ausente
+questao_04,2022,LC,C,C,True,0.874583,1.0,ok,100 Justificativa: A resposta C) é a,,ausente
+questao_05,2022,LC,D,D,True,0.987546,1.0,ok,100 Justificativa: A resposta D) é a,,ausente
+questao_06,2022,LC,A,C,False,0.635463,1.0,ok,"100 **Justificativa:** A resposta ""A""",,ausente
+questao_07,2022,LC,C,C,True,0.995692,1.0,ok,"100 **Justificativa:** A resposta ""C""",,ausente
+questao_08,2022,LC,D,C,False,0.515005,1.0,ok,100 Justificativa: A pesquisa indica que a falta,,ausente
+questao_09,2022,LC,D,D,True,0.878568,1.0,ok,"100 Justificativa: A resposta ""D"" é a",,ausente
+questao_10,2022,LC,A,C,False,0.865387,1.0,ok,100 Justificativa: A resposta A) é a,,ausente
+questao_11,2022,LC,A,C,False,0.665739,1.0,ok,100 Justificativa: A resposta A) é a,,ausente
+questao_12,2022,LC,A,E,False,0.972687,1.0,ok,100 **Justificativa:** A resposta A) é,,ausente
+questao_13,2022,LC,A,B,False,0.998049,1.0,ok,100 Justificativa: A resposta A) é a,,ausente
+questao_14,2022,LC,A,A,True,0.71151,1.0,ok,100 **Justificativa:** O texto descreve uma,,ausente
+questao_15,2022,LC,B,C,False,0.919632,1.0,ok,100 **Justificativa:** A resposta B) “,,ausente
+questao_17,2022,LC,B,B,True,0.719772,1.0,ok,100 Justificativa: A resposta B) conjuga,,ausente
+questao_19,2022,LC,B,A,False,0.873393,1.0,ok,100 Justificativa: A) A resposta é irre,,ausente
+questao_21,2022,LC,A,E,False,0.417439,1.0,ok,100 Justificativa: A resposta A) impessoal,,ausente
+questao_22,2022,LC,C,E,False,0.998767,1.0,ok,100 Justificativa: A resposta C) é a,,ausente
+questao_23,2022,LC,D,C,False,0.766629,0.95,ok,95 **Justificativa:** O texto enfatiza que as,,ausente
+questao_24,2022,LC,A,A,True,0.800342,1.0,ok,100 Justificativa: A resposta A) é a,,ausente
+questao_25,2022,LC,A,B,False,0.61383,0.0,ok,"0 Justificativa: A resposta ""A"" é incorreta",,ausente
+questao_26,2022,LC,A,A,True,0.994064,1.0,ok,100 Justificativa: A resposta A) representa uma represent,,ausente
+questao_29,2022,LC,A,E,False,0.30945,1.0,ok,100 **Justificativa:** A resposta A) c,,ausente
+questao_31,2022,LC,C,E,False,0.898757,1.0,ok,100 Justificativa: A resposta C) é a,,ausente
+questao_32,2022,LC,B,B,True,0.519586,1.0,ok,100 Justificativa: A resposta B) é a,,ausente
+questao_33,2022,LC,B,E,False,0.976368,1.0,ok,100 Justificativa: A resposta B) está corre,0.003093,sim_dist
+questao_34,2022,LC,A,E,False,0.409033,1.0,ok,"100 **Justificativa:** A resposta ""A""",,ausente
+questao_35,2022,LC,C,D,False,0.993486,1.0,ok,100 **Análise da resposta:** A narrativa de Machado,,ausente
+questao_36,2022,LC,D,C,False,0.634011,1.0,ok,"100 **Justificativa:** A resposta ""D)",,ausente
+questao_37,2022,LC,A,A,True,0.992555,1.0,ok,100 Justificativa: A resposta A) descreve de,,ausente
+questao_38,2022,LC,D,D,True,0.988852,,sem_numero,"____ **Justificativa:** A resposta D é a mais adequada,",,ausente
+questao_39,2022,LC,E,B,False,0.461154,1.0,ok,100 **Justificativa:** O texto descreve a,,ausente
+questao_40,2022,LC,A,D,False,0.951644,1.0,ok,100 Explicação: A) Lição de vida comunic,,ausente
+questao_41,2022,LC,D,B,False,0.977177,1.0,ok,100 Justificativa: A resposta D) refuta,,ausente
+questao_42,2022,LC,C,D,False,0.941653,1.0,ok,100 Justificativa: A resposta C é a mais adequada,,ausente
+questao_45,2022,LC,A,A,True,0.993774,1.0,ok,100 Explicação: O trecho de Machado de Ass,,ausente
+questao_46,2022,CH,C,C,True,0.993378,1.0,ok,100 Justificativa: A resposta C) é a,,ausente
+questao_47,2022,CH,A,B,False,0.883455,,sem_numero,______ **Justificativa:** A) Limitação da área ocupada,,ausente
+questao_48,2022,CH,C,E,False,0.533721,0.9,ok,"90 **Justificativa:** A filosofia de Basso,",,ausente
+questao_49,2022,CH,C,C,True,0.985949,1.0,ok,"100 **Justificativa:** A resposta ""C""",,ausente
+questao_50,2022,CH,A,A,True,0.996663,1.0,ok,"100 **Justificativa:** A resposta ""A)",,ausente
+questao_52,2022,CH,D,B,False,0.503795,1.0,ok,"100 **Justificativa:** A resposta ""D)",,ausente
+questao_53,2022,CH,C,C,True,0.992357,,sem_numero,"____ **Justificativa:** A resposta ""C"" está correta",,ausente
+questao_54,2022,CH,A,D,False,0.99114,1.0,ok,"100 Justificativa: A resposta ""A) ab",,ausente
+questao_56,2022,CH,A,A,True,0.994013,1.0,ok,"100 Justificativa: A resposta A) ""h",,ausente
+questao_57,2022,CH,A,C,False,0.696493,1.0,ok,100 **Justificativa:** O trecho descreve,,ausente
+questao_58,2022,CH,A,D,False,0.900639,,sem_numero,"____ **Justificativa:** A resposta ""A) diversificação da",,ausente
+questao_60,2022,CH,B,E,False,0.821994,1.0,ok,100 **Justificativa:** O texto descreve a,,ausente
+questao_61,2022,CH,C,D,False,0.976547,,sem_numero,"____ **Justificativa:** A resposta ""C) operários na",,ausente
+questao_62,2022,CH,A,A,True,0.963805,0.0,ok,"0 Justificativa: A resposta ""A) econômicos das",,ausente
+questao_64,2022,CH,C,A,False,0.796805,1.0,ok,"100 Justificativa: A resposta ""C"" é",,ausente
+questao_65,2022,CH,D,D,True,0.983209,1.0,ok,100 **Justificativa:** A pesquisa do IBGE,,ausente
+questao_66,2022,CH,B,B,True,0.98006,1.0,ok,"100 **Justificativa:** A resposta ""B""",,ausente
+questao_67,2022,CH,A,C,False,0.765103,1.0,ok,"100 Justificativa: A resposta ""A"" está",,ausente
+questao_68,2022,CH,C,D,False,0.910165,1.0,ok,"100 **Justificativa:** A resposta ""C""",,ausente
+questao_70,2022,CH,A,A,True,0.437146,,sem_numero,____ **Justificativa:** A resposta A) é a justificativa,,ausente
+questao_71,2022,CH,E,E,True,0.323751,1.0,ok,"100 **Justificativa:** A dublagem,",,ausente
+questao_72,2022,CH,C,C,True,0.997068,0.95,ok,95 Justificativa: A resposta C) é a mais,,ausente
+questao_73,2022,CH,A,B,False,0.336199,0.0,ok,"**0** **Explicação:** A resposta ""A) da",,ausente
+questao_76,2022,CH,A,A,True,0.995661,1.0,ok,"100 **Justificativa:** A resposta ""Formação",,ausente
+questao_77,2022,CH,D,E,False,0.449682,1.0,ok,100 Justificativa: A resposta D) é a,,ausente
+questao_78,2022,CH,B,C,False,0.786804,,sem_numero,"____ **Justificativa:** A resposta ""B) Reestruturação",,ausente
+questao_79,2022,CH,B,B,True,0.99463,,sem_numero,"______ **Justificativa:** A resposta B) social, estimul",,ausente
+questao_80,2022,CH,D,E,False,0.971771,1.0,ok,100 Justificativa: A resposta D) consolidação,,ausente
+questao_81,2022,CH,D,B,False,0.714941,,sem_numero,____ **Justificativa:** A resposta D) desmatar áreas,,ausente
+questao_83,2022,CH,A,E,False,0.966772,1.0,ok,"100 **Justificativa:** A resposta ""A""",,ausente
+questao_84,2022,CH,A,E,False,0.745602,1.0,ok,100 Justificativa: A) Fabricação em série,,ausente
+questao_85,2022,CH,D,D,True,0.765374,1.0,ok,100 **Justificativa:** A letra da canção,,ausente
+questao_86,2022,CH,A,A,True,0.900446,1.0,ok,"100 **Justificativa:** A resposta ""A)",,ausente
+questao_87,2022,CH,D,D,True,0.833476,,sem_numero,"____ **Análise da resposta:** A resposta ""D) íntimo",,ausente
+questao_88,2022,CH,D,E,False,0.534079,0.0,ok,"0 Justificativa: A resposta ""D) melhoria da",,ausente
+questao_89,2022,CH,A,A,True,0.956855,1.0,ok,100 **Justificativa:** O texto apresenta uma visão,,ausente
+questao_91,2022,CN,C,D,False,0.99606,,sem_numero,**Explicação:** A resposta C é a mais adequada. A resposta,,ausente
+questao_95,2022,CN,C,D,False,0.929205,,sem_numero,"____ **Justificativa:** A resposta C é a mais adequada,",,ausente
+questao_96,2022,CN,C,B,False,0.576996,0.95,ok,____ **Resposta:** 95 **Justificativa:** A,,ausente
+questao_97,2022,CN,C,E,False,0.81436,,sem_numero,____ **Explicação:** O ciclo do ácido cítico é uma via,,ausente
+questao_98,2022,CN,C,A,False,0.973594,,sem_numero,____ **Justificativa:** O modelo proposto é baseado em circuitos el,,ausente
+questao_100,2022,CN,D,C,False,0.584189,,sem_numero,____ **Explicação:** * **Cones:** São células sens,,ausente
+questao_101,2022,CN,D,A,False,0.433351,1.0,ok,100 Justificativa: A técnica de modificação da,,ausente
+questao_102,2022,CN,C,E,False,0.683132,,sem_numero,____ **Explicação:** O problema descreve a substituição do Sol,,ausente
+questao_103,2022,CN,A,B,False,0.842061,0.0,ok,"0 Justificativa: A resposta ""A) catalisador",,ausente
+questao_106,2022,CN,A,E,False,0.963118,,sem_numero,_________ **Justificativa:** A) variação do pH do,,ausente
+questao_107,2022,CN,C,B,False,0.596814,,sem_numero,____ **Análise da resposta C):** A resposta C),0.001298,sim_dist
+questao_108,2022,CN,C,B,False,0.953455,1.0,ok,100 Justificativa: A ducha elétrica é um dispositivo,,ausente
+questao_109,2022,CN,C,C,True,0.54211,,sem_numero,____ **Explicação:** O experimento que você descreveu é um exemplo,,ausente
+questao_113,2022,CN,C,C,True,0.645612,,sem_numero,____ **Justificativa:** A resposta C é a mais provável,,ausente
+questao_114,2022,CN,C,B,False,0.925869,,sem_numero,____ **Explicação:** A variação de temperatura em áreas urbanas,,ausente
+questao_115,2022,CN,A,D,False,0.742258,,sem_numero,**Explicação:** O texto descreve um estudo de monitoramento de,0.00219,sim_dist
+questao_116,2022,CN,C,D,False,0.986207,,sem_numero,____ **Justificativa:** A resposta C é a mais adequada porque,,ausente
+questao_120,2022,CN,C,E,False,0.971676,1.0,ok,"100 **Justificativa:** A resposta ""C)",,ausente
+questao_121,2022,CN,C,A,False,0.635275,,sem_numero,____ **Explicação:** A análise da situação é a seguinte:,,ausente
+questao_124,2022,CN,A,A,True,0.995588,0.0,ok,**0** **Explicação:** A resposta A é uma descrição,,ausente
+questao_125,2022,CN,C,B,False,0.844416,,sem_numero,____ **Explicação:** O problema descreve um experimento simples que busca,,ausente
+questao_126,2022,CN,A,C,False,0.580104,,sem_numero,**Justificativa:** A análise do quadro fornecido indica que a,,ausente
+questao_127,2022,CN,D,E,False,0.949344,,sem_numero,"____ **Justificativa:** A resposta D é a mais adequada,",,ausente
+questao_129,2022,CN,A,B,False,0.729687,0.0,ok,**0** **Confiança:** **100**,,ausente
+questao_130,2022,CN,A,E,False,0.97423,,sem_numero,**Explicação:** A resposta correta é A) correção do código,,ausente
+questao_133,2022,CN,D,D,True,0.993683,,sem_numero,______ **Explicação:** A filariose e a leishmani,,ausente
+questao_134,2022,CN,A,B,False,0.427815,,sem_numero,** ** ** ** ** ** ** **,,ausente
+questao_135,2022,CN,D,A,False,0.312852,1.0,ok,100 Justificativa: A resposta D) é a,,ausente
+questao_138,2022,MT,C,E,False,0.661658,1.0,ok,**Resposta:** 100 **Explicação:** O número,0.001215,sim_dist
+questao_140,2022,MT,A,A,True,0.500048,0.01,ok,________ **Explicação:** A resposta correta é A) 1,0.001709,sim_dist
+questao_141,2022,MT,C,E,False,0.431712,1.0,ok,100 **Explicação:** A cozinheira produz,,ausente
+questao_142,2022,MT,A,A,True,0.722701,0.01,ok,**Justificativa:** A resposta A) 1 é uma estim,,ausente
+questao_143,2022,MT,A,B,False,0.32539,1.0,ok,100 **Justificativa:** A resposta A),,ausente
+questao_144,2022,MT,A,D,False,0.569658,,sem_numero,____ Resposta: ____ --- **Análise da resposta:** A,0.002873,sim_dist
+questao_145,2022,MT,C,D,False,0.421707,0.9,ok,**90** **Explicação:** A questão pede para estim,,ausente
+questao_147,2022,MT,A,E,False,0.464841,,sem_numero,____ **Explicação:** Vamos analisar as informações fornecidas para determinar a,,ausente
+questao_149,2022,MT,C,D,False,0.94134,,sem_numero,____ **Explicação:** A questão pede para determinar o percentual máximo,,ausente
+questao_150,2022,MT,C,B,False,0.946585,1.0,ok,**Explicação:** A confiança é de 100. A,,ausente
+questao_151,2022,MT,C,A,False,0.727927,,sem_numero,** ** ** ** ** ** ** **,,ausente
+questao_152,2022,MT,C,A,False,0.577088,,sem_numero,**Justificativa:** **Resposta:** **Confiança:** [,,ausente
+questao_153,2022,MT,C,A,False,0.893538,,sem_numero,**Explicação:** O problema é que o valor que a cliente calcul,,ausente
+questao_154,2022,MT,C,A,False,0.631802,0.95,ok,95 **Explicação:** O cálculo do dividend yield (dividend,,ausente
+questao_158,2022,MT,A,C,False,0.553726,0.9,ok,``` 90 ``` ``` 90 ``` ```,,ausente
+questao_159,2022,MT,A,B,False,0.577711,0.03,ok,_________ **Análise da resposta A) T3 R T4,,ausente
+questao_160,2022,MT,A,C,False,0.417477,0.0,ok,0-20 10-30 30-4,0.000357,sim_dist
+questao_161,2022,MT,C,C,True,0.94497,,sem_numero,____ **Explicação:** O volume de um cone circular reto é dado,,ausente
+questao_162,2022,MT,C,C,True,0.873487,,sem_numero,"____ **Explicação:** O Caged, que é o principal banco",0.001283,sim_dist
+questao_163,2022,MT,C,B,False,0.442881,0.09,ok,____ Vamos analisar o problema. Um prédio tem 9 andares e,,ausente
+questao_164,2022,MT,A,C,False,0.888751,0.3,ok,"____ **Justificativa:** A resposta ""A) 30",,ausente
+questao_166,2022,MT,A,D,False,0.661436,1.0,ok,100 **Explicação:** A Lei de Stefan-Boltzmann,,ausente
+questao_167,2022,MT,C,B,False,0.675424,,sem_numero,____ **Justificativa:** A mediana é o valor que separa a,,ausente
+questao_169,2022,MT,C,E,False,0.862269,0.06,ok,____ **Explicação:** O pacote especial tem 6 00,,ausente
+questao_170,2022,MT,C,E,False,0.584849,,sem_numero,____ **Explicação:** Vamos analisar o problema. O corredor treina,,ausente
+questao_171,2022,MT,C,C,True,0.552445,0.95,ok,95 Justificativa: A equipe de marketing considerou que,,ausente
+questao_172,2022,MT,C,B,False,0.877157,1.0,ok,100 **Justificativa:** A montadora oferece,,ausente
+questao_173,2022,MT,C,D,False,0.699616,0.95,ok,95 **Explicação:** O casal deseja recarregar o,,ausente
+questao_174,2022,MT,A,C,False,0.869049,1.0,ok,100,,ausente
+questao_175,2022,MT,C,A,False,0.710894,0.01,ok,____ **Explicação:** O refrigerador tem altura máxima de 1,,ausente
+questao_176,2022,MT,C,B,False,0.972147,,sem_numero,____ **Explicação:** Vamos analisar o número de dias necessários para o,0.001349,sim_dist
+questao_179,2022,MT,C,C,True,0.950184,1.0,ok,100 **Resposta:** 100 **Explicação,0.000591,sim_dist
+questao_01,2023,LC,C,B,False,0.99049,,sem_numero,"____ **Explicação:** A frase ""No man is an island""",,ausente
+questao_02,2023,LC,D,D,True,0.978829,1.0,ok,"100 **Justificativa:** A resposta ""D""",,ausente
+questao_05,2023,LC,A,A,True,0.979235,,sem_numero,____ **Justificativa:** A resposta A) convergência linguístico,,ausente
+questao_06,2023,LC,A,A,True,0.984084,1.0,ok,100 Justificativa: A resposta A) metáfor,,ausente
+questao_08,2023,LC,B,E,False,0.49301,1.0,ok,"100 **Justificativa:** A resposta B) """,,ausente
+questao_09,2023,LC,C,C,True,0.783625,1.0,ok,100 Justificativa: A resposta C) é a,,ausente
+questao_10,2023,LC,C,B,False,0.979662,1.0,ok,100 Justificativa: A resposta C) é a,,ausente
+questao_11,2023,LC,E,B,False,0.607346,1.0,ok,"100 **Justificativa:** A resposta ""E""",,ausente
+questao_12,2023,LC,A,E,False,0.531656,,sem_numero,"____ **Justificativa:** A resposta ""A) diferença entre homens",,ausente
+questao_13,2023,LC,A,A,True,0.993589,1.0,ok,"100 Justificativa: A resposta ""A"" está corre",,ausente
+questao_14,2023,LC,A,A,True,0.995993,1.0,ok,"100 Justificativa: A resposta ""A"" é a",,ausente
+questao_15,2023,LC,B,C,False,0.663156,1.0,ok,100 Justificativa: A resposta B) é a,,ausente
+questao_16,2023,LC,A,A,True,0.99363,1.0,ok,"100 Justificativa: A resposta A) ""fus",,ausente
+questao_17,2023,LC,A,A,True,0.979348,1.0,ok,"100 Justificativa: A resposta A) ""inter",,ausente
+questao_20,2023,LC,C,E,False,0.995935,1.0,ok,100 **Justificativa:** A resposta C é a,,ausente
+questao_21,2023,LC,A,A,True,0.898566,1.0,ok,"100 Justificativa: A resposta A) ""cult",,ausente
+questao_22,2023,LC,A,C,False,0.500819,1.0,ok,"100 **Justificativa:** A resposta ""A""",,ausente
+questao_23,2023,LC,A,B,False,0.614708,1.0,ok,100 Justificativa: A resposta A) reflete,,ausente
+questao_24,2023,LC,C,C,True,0.932502,1.0,ok,100 Justificativa: A resposta C) é a,,ausente
+questao_25,2023,LC,A,A,True,0.960477,1.0,ok,"100 **Explicação:** A resposta ""A"" é",,ausente
+questao_26,2023,LC,C,C,True,0.973305,1.0,ok,"100 **Justificativa:** O poema ""A garg",,ausente
+questao_27,2023,LC,C,C,True,0.983312,1.0,ok,100 **Justificativa:** A resposta C é a,,ausente
+questao_28,2023,LC,C,C,True,0.993413,1.0,ok,"100 Justificativa: A resposta C) ""constru",,ausente
+questao_30,2023,LC,D,D,True,0.982994,1.0,ok,100 **Justificativa:** O texto original apresenta uma,,ausente
+questao_31,2023,LC,B,E,False,0.689817,1.0,ok,100 Justificativa: A) A resposta é muito,,ausente
+questao_32,2023,LC,A,D,False,0.925472,1.0,ok,100 Justificativa: A resposta A) é a,,ausente
+questao_33,2023,LC,C,A,False,0.909074,1.0,ok,100 Justificativa: A resposta C é a mais precisa,,ausente
+questao_34,2023,LC,D,D,True,0.996954,1.0,ok,100 **Justificativa:** A resposta D) é,,ausente
+questao_35,2023,LC,B,B,True,0.952529,1.0,ok,100 Justificativa: A resposta B é a mais,,ausente
+questao_36,2023,LC,C,D,False,0.866412,1.0,ok,"100 **Justificativa:** A resposta ""C""",,ausente
+questao_37,2023,LC,C,B,False,0.877268,0.95,ok,95 Justificativa: A) A resposta não aborda,,ausente
+questao_38,2023,LC,A,E,False,0.998042,1.0,ok,"100 **Justificativa:** A resposta ""A)",,ausente
+questao_39,2023,LC,D,E,False,0.90979,1.0,ok,100 **Justificativa:** O texto descreve que,,ausente
+questao_40,2023,LC,D,D,True,0.752961,1.0,ok,100 Justificativa: A resposta D é a mais adequada,,ausente
+questao_41,2023,LC,D,D,True,0.988391,0.9,ok,90 Justificativa: A resposta D) é a mais,,ausente
+questao_42,2023,LC,A,A,True,0.976361,1.0,ok,100 Justificativa: A resposta A) é a,,ausente
+questao_43,2023,LC,E,C,False,0.558758,1.0,ok,100 Justificativa: A resposta E) está corre,,ausente
+questao_44,2023,LC,C,C,True,0.560637,0.95,ok,95 Justificativa: A resposta C) descreve a descrição,,ausente
+questao_45,2023,LC,A,C,False,0.91117,1.0,ok,100 **Justificativa:** O texto original é uma,,ausente
+questao_46,2023,CH,A,A,True,0.987722,1.0,ok,100 Justificativa: O texto 1 e,,ausente
+questao_47,2023,CH,A,B,False,0.729258,,sem_numero,"____ **Justificativa:** A resposta ""A"" está correta",,ausente
+questao_48,2023,CH,A,C,False,0.650486,1.0,ok,100 **Explicação:** O texto descreve a vida,,ausente
+questao_49,2023,CH,D,D,True,0.706141,1.0,ok,"100 Justificativa: A resposta ""D"" é",,ausente
+questao_50,2023,CH,A,C,False,0.994864,1.0,ok,"100 Justificativa: A resposta ""A"" é",,ausente
+questao_51,2023,CH,B,B,True,0.981012,1.0,ok,"100 **Justificativa:** A resposta B) """,,ausente
+questao_52,2023,CH,D,D,True,0.992672,1.0,ok,100 **Justificativa:** O discurso de Txai,,ausente
+questao_55,2023,CH,D,D,True,0.997087,1.0,ok,100 A) A educação era mais acessível e a cultura,,ausente
+questao_56,2023,CH,A,A,True,0.378053,1.0,ok,100 Justificativa: A resposta A) é a,,ausente
+questao_57,2023,CH,C,E,False,0.277318,1.0,ok,"100 Justificativa: A resposta ""C"" é",,ausente
+questao_58,2023,CH,A,A,True,0.935039,1.0,ok,100 Justificativa: A resposta A) é a,,ausente
+questao_60,2023,CH,A,E,False,0.974451,0.0,ok,0 Justificativa: A resposta A) é incorreta. O,,ausente
+questao_61,2023,CH,A,E,False,0.943694,1.0,ok,"100 **Justificativa:** A resposta ""A""",,ausente
+questao_62,2023,CH,C,C,True,0.539093,0.9,ok,"90 Justificativa: A carta Balfour, embora tenha sido",,ausente
+questao_63,2023,CH,A,A,True,0.994236,1.0,ok,100 Justificativa: O texto original apresenta a ideia,,ausente
+questao_64,2023,CH,A,B,False,0.977236,,sem_numero,**Explicação:** A resposta correta é A) Derrame de,,ausente
+questao_65,2023,CH,A,A,True,0.855578,0.0,ok,"0 Justificativa: A resposta ""A"" é uma simplificação",,ausente
+questao_67,2023,CH,C,B,False,0.977339,1.0,ok,"100 **Justificativa:** A resposta ""C""",,ausente
+questao_68,2023,CH,A,E,False,0.801606,1.0,ok,100 Justificativa: A resposta A) é a,,ausente
+questao_69,2023,CH,A,A,True,0.996878,1.0,ok,"100 Justificativa: A resposta ""A) ocup",,ausente
+questao_70,2023,CH,D,B,False,0.815925,1.0,ok,100 Explicação: O texto do primeiro parágrafo,,ausente
+questao_71,2023,CH,A,A,True,0.997715,,sem_numero,"**Justificativa:** A resposta ""A"" é incorreta.",,ausente
+questao_72,2023,CH,D,D,True,0.989333,1.0,ok,100 Justificativa: A resposta D é a mais,,ausente
+questao_73,2023,CH,C,E,False,0.722135,1.0,ok,"100 **Justificativa:** A resposta ""C""",,ausente
+questao_74,2023,CH,B,B,True,0.698566,0.95,ok,95 Justificativa: A resposta B) é a mais,,ausente
+questao_75,2023,CH,A,A,True,0.847659,1.0,ok,"100 **Justificativa:** A resposta ""A)",,ausente
+questao_76,2023,CH,C,A,False,0.519423,1.0,ok,100 Justificativa: A resposta C) supress,,ausente
+questao_77,2023,CH,B,B,True,0.940307,1.0,ok,100 Justificativa: A resposta B) é a,,ausente
+questao_78,2023,CH,C,C,True,0.995505,1.0,ok,100 **Justificativa:** O texto descreve uma,,ausente
+questao_79,2023,CH,A,D,False,0.580749,1.0,ok,"100 Justificativa: A resposta ""A) controle",,ausente
+questao_80,2023,CH,C,C,True,0.5976,1.0,ok,100 Justificativa: A resposta C é a mais,,ausente
+questao_81,2023,CH,A,A,True,0.995408,0.0,ok,"0 Justificativa: A resposta ""A) apropria",,ausente
+questao_83,2023,CH,A,A,True,0.97725,0.0,ok,0 Justificativa: A) O processo de expansão marít,,ausente
+questao_84,2023,CH,B,D,False,0.868453,0.9,ok,"90 Justificativa: A resposta B) ""admissível",,ausente
+questao_85,2023,CH,C,C,True,0.512522,1.0,ok,100 **Justificativa:** O texto original apresenta uma,,ausente
+questao_87,2023,CH,A,A,True,0.993476,1.0,ok,100 Justificativa: A resposta A) é a mais,,ausente
+questao_88,2023,CH,A,A,True,0.990235,1.0,ok,"100 **Justificativa:** A resposta ""A)",,ausente
+questao_89,2023,CH,D,D,True,0.946026,1.0,ok,"100 **Justificativa:** A resposta ""D)",,ausente
+questao_90,2023,CH,A,E,False,0.871859,1.0,ok,"100 **Justificativa:** A resposta ""Diversificação",,ausente
+questao_91,2023,CN,D,C,False,0.876693,1.0,ok,"100 **Explicação:** A resposta D) ""t",,ausente
+questao_93,2023,CN,D,D,True,0.727885,1.0,ok,100 **Explicação:** A resposta correta é A,,ausente
+questao_94,2023,CN,C,A,False,0.993954,1.0,ok,100 **Explicação:** O refrigerante diet contém menos,,ausente
+questao_96,2023,CN,A,E,False,0.752076,,sem_numero,**Justificativa:** A resposta correta é a avaliação de micron,,ausente
+questao_99,2023,CN,C,E,False,0.346352,,sem_numero,____ **Explicação:** A síndrome de Down é uma alteração genética,,ausente
+questao_102,2023,CN,D,D,True,0.918741,,sem_numero,**Justificativa:** **Análise:** * **A,,ausente
+questao_103,2023,CN,C,B,False,0.611702,1.0,ok,100 **Explicação:** Vamos analisar o problema. O,,ausente
+questao_105,2023,CN,C,D,False,0.790194,0.95,ok,95 **Justificativa:** A resposta C é a mais,,ausente
+questao_106,2023,CN,C,C,True,0.556561,0.95,ok,95 Justificativa: A resposta C) 3.,,ausente
+questao_107,2023,CN,C,C,True,0.81983,,sem_numero,**Explicação:** O problema descreve uma situação de explosão de,,ausente
+questao_110,2023,CN,C,B,False,0.92348,,sem_numero,____ **Justificativa:** A biorremediação é um processo,,ausente
+questao_112,2023,CN,C,A,False,0.831747,1.0,ok,100 **Explicação:** A dose de radiação ion,,ausente
+questao_115,2023,CN,A,A,True,0.905071,,sem_numero,______ **Explicação:** O comprimento de onda do laser é crucial para,,ausente
+questao_116,2023,CN,C,A,False,0.952877,,sem_numero,**Explicação:** O valor mínimo de intensidade do sinal de bluetooth é,,ausente
+questao_117,2023,CN,D,C,False,0.546496,,sem_numero,**Justificativa:** A resposta D) competição entre o RNAm,,ausente
+questao_118,2023,CN,D,D,True,0.405827,,sem_numero,"**Justificativa:** A resposta D é a mais provável,",,ausente
+questao_119,2023,CN,A,D,False,0.992729,1.0,ok,100 Resposta: 100 Justificativa:,,ausente
+questao_121,2023,CN,A,A,True,0.982435,1.0,ok,100 **Justificativa:** A resposta correta é,,ausente
+questao_122,2023,CN,A,C,False,0.989579,1.0,ok,100 **Justificativa:** A resposta correta é,,ausente
+questao_123,2023,CN,D,D,True,0.972723,1.0,ok,100 **Explicação:** A resposta correta é D,,ausente
+questao_124,2023,CN,D,B,False,0.882159,1.0,ok,100 Justificativa: A resposta D) é a,,ausente
+questao_125,2023,CN,A,E,False,0.638228,,sem_numero,"**Justificativa:** A resposta ""A) fotossíntese",,ausente
+questao_126,2023,CN,A,A,True,0.996387,,sem_numero,**Explicação:** O garoto realizou um experimento que demonstra o,,ausente
+questao_127,2023,CN,A,B,False,0.309794,,sem_numero,"____ **Justificativa:** A resposta ""A) ácidos nucleicos",,ausente
+questao_128,2023,CN,D,D,True,0.974753,,sem_numero,**Justificativa:** A leishmaniose visceral é uma zoon,,ausente
+questao_129,2023,CN,A,C,False,0.790621,,sem_numero,**Explicação:** O problema descreve um objeto que se move vertical,,ausente
+questao_130,2023,CN,C,D,False,0.913192,,sem_numero,"____ **Justificativa:** A resposta ""C"" está correta",,ausente
+questao_131,2023,CN,C,B,False,0.678694,1.0,ok,"100 **Justificativa:** A resposta ""C)",,ausente
+questao_132,2023,CN,D,E,False,0.860813,1.0,ok,100 **Justificativa:** A resposta D) é,,ausente
+questao_133,2023,CN,C,A,False,0.300784,0.03,ok,"______ **Análise da resposta:** A resposta ""C) 3",,ausente
+questao_134,2023,CN,C,B,False,0.988189,1.0,ok,"100 Justificativa: A aves migratórias,",,ausente
+questao_135,2023,CN,C,D,False,0.498515,,sem_numero,____ **Explicação:** Vamos analisar o ganho percentual na hid,,ausente
+questao_137,2023,MT,A,B,False,0.24639,0.0,ok,(0-100) (0-100),,ausente
+questao_140,2023,MT,C,E,False,0.500183,,sem_numero,**Explicação:** O cliente deseja minimizar o tempo de espera na fila,,ausente
+questao_145,2023,MT,C,D,False,0.927655,,sem_numero,______ **Explicação:** A expressão que representa o preço y em função,,ausente
+questao_146,2023,MT,A,A,True,0.527545,,sem_numero,____ **Explicação:** Vamos analisar o problema: * **,,ausente
+questao_149,2023,MT,A,C,False,0.571694,,sem_numero,______ **Análise da resposta A) Outubro.** A resposta A,,ausente
+questao_151,2023,MT,A,C,False,0.57675,,sem_numero,____ Resposta: ____ --- **Análise do Problema**,,ausente
+questao_152,2023,MT,C,C,True,0.890741,0.0,ok,0 - 100 B - 60 A -,,ausente
+questao_153,2023,MT,C,A,False,0.726962,,sem_numero,____ **Explicação:** A resposta correta é C) C =,,ausente
+questao_155,2023,MT,C,B,False,0.843832,,sem_numero,____ **Justificativa:** A justificativa explica que a resposta C,,ausente
+questao_156,2023,MT,C,A,False,0.834379,,sem_numero,____ **Explicação:** Vamos analisar o problema: * **,,ausente
+questao_158,2023,MT,C,D,False,0.468975,,sem_numero,____ **Explicação:** O gerente calculou a expressão V de x,0.001004,sim_dist
+questao_160,2023,MT,C,D,False,0.499872,0.95,ok,95 Explicação: O pescador já tem um custo fix,,ausente
+questao_161,2023,MT,A,D,False,0.719077,0.0,ok,(0-10) ``` 90 ``` ```,,ausente
+questao_162,2023,MT,D,A,False,0.918798,,sem_numero,____ **Explicação:** Vamos analisar as probabilidades de cada tipo de senha,,ausente
+questao_163,2023,MT,C,E,False,0.892408,0.9,ok,"**90** **Explicação:** O problema define que,",,ausente
+questao_165,2023,MT,C,E,False,0.871367,0.95,ok,95 Vamos analisar o problema. Há 200 estudantes,,ausente
+questao_166,2023,MT,C,A,False,0.852316,1.0,ok,100 **Explicação:** O problema pede para determinar a,,ausente
+questao_167,2023,MT,C,B,False,0.944574,0.0,ok,0-20 21-40 41-6,0.001317,sim_dist
+questao_171,2023,MT,A,D,False,0.931127,,sem_numero,**Justificativa:** A análise do período de vendas dos produtos,,ausente
+questao_173,2023,MT,C,C,True,0.925333,,sem_numero,_________ **Justificativa:** A confiança é alta porque o valor,,ausente
+questao_174,2023,MT,C,A,False,0.742018,,sem_numero,____ **Explicação:** Vamos analisar o problema. * **,,ausente
+questao_175,2023,MT,C,D,False,0.921122,,sem_numero,____ **Explicação:** Vamos analisar o problema: * **,,ausente
+questao_178,2023,MT,A,C,False,0.533593,0.0,ok,``` 0.0 ``` ``` 0 ``` ```,0.001229,sim_dist
+questao_180,2023,MT,C,B,False,0.727386,,sem_numero,______ **Explicação:** O parâmetro EC (Economia de Corr,,ausente
+questao_01,2024,LC,D,A,False,0.61878,0.95,ok,"95 **Justificativa:** A resposta ""D) perspectiva",,ausente
+questao_05,2024,LC,A,A,True,0.979739,1.0,ok,100 Justificativa: A resposta A) repúdio,,ausente
+questao_06,2024,LC,B,C,False,0.985363,1.0,ok,100 **Explicação:** A resposta B) é a,,ausente
+questao_07,2024,LC,D,B,False,0.905654,1.0,ok,"100 **Justificativa:** O poema ""Rua",,ausente
+questao_08,2024,LC,A,E,False,0.974976,1.0,ok,100 **Explicação:** A resposta correta é A,,ausente
+questao_09,2024,LC,D,D,True,0.444415,1.0,ok,"100 Justificativa: A resposta ""D"" é",,ausente
+questao_10,2024,LC,A,A,True,0.996357,1.0,ok,"100 **Justificativa:** A resposta ""A)",,ausente
+questao_11,2024,LC,D,D,True,0.988214,1.0,ok,100 **Justificativa:** O texto original é uma,,ausente
+questao_13,2024,LC,C,E,False,0.723438,1.0,ok,"100 Justificativa: A resposta ""C"" é a",,ausente
+questao_14,2024,LC,C,B,False,0.908271,1.0,ok,100 **Justificativa:** A resposta C é a,,ausente
+questao_15,2024,LC,D,D,True,0.568043,1.0,ok,"100 **Justificativa:** A resposta ""D)",,ausente
+questao_17,2024,LC,B,B,True,0.395663,1.0,ok,"100 **Justificativa:** A resposta B) """,,ausente
+questao_19,2024,LC,B,B,True,0.876739,1.0,ok,100 Justificativa: A resposta B) é a,,ausente
+questao_20,2024,LC,B,B,True,0.951208,1.0,ok,"100 Justificativa: A resposta ""B"" é",,ausente
+questao_21,2024,LC,C,C,True,0.426491,1.0,ok,100 **Análise da resposta:** A resposta C),,ausente
+questao_22,2024,LC,C,E,False,0.987435,0.85,ok,85 Justificativa: A resposta C) apresenta elementos relevantes,,ausente
+questao_24,2024,LC,C,C,True,0.572385,1.0,ok,100 Justificativa: A resposta C) é a mais,,ausente
+questao_25,2024,LC,B,B,True,0.656667,1.0,ok,100 **Justificativa:** A resposta B) é,,ausente
+questao_26,2024,LC,C,D,False,0.905789,,sem_numero,____ **Análise da resposta:** A resposta C) defende a,,ausente
+questao_28,2024,LC,C,B,False,0.464841,0.95,ok,"95 Justificativa: A resposta C é a mais adequada,",,ausente
+questao_29,2024,LC,A,A,True,0.991198,1.0,ok,100 Justificativa: A resposta A) é a,,ausente
+questao_30,2024,LC,A,D,False,0.91704,1.0,ok,100 Justificativa: A resposta A) é a mais,,ausente
+questao_31,2024,LC,C,D,False,0.998361,1.0,ok,100 **Justificativa:** A resposta C) é,,ausente
+questao_32,2024,LC,A,D,False,0.86279,0.0,ok,0 Justificativa: A resposta A) é uma interpretação superficial,,ausente
+questao_33,2024,LC,C,C,True,0.991846,0.95,ok,95 **Justificativa:** A resposta C é a mais,,ausente
+questao_34,2024,LC,A,B,False,0.725542,1.0,ok,100 Justificativa: A resposta A) é a,,ausente
+questao_35,2024,LC,D,D,True,0.997903,1.0,ok,100 Justificativa: A resposta D) é a,,ausente
+questao_36,2024,LC,C,E,False,0.808774,,sem_numero,____ **Justificativa:** A resposta C) potencializar o alcance,,ausente
+questao_37,2024,LC,C,D,False,0.788916,1.0,ok,100 Justificativa: A resposta C) é a mais,,ausente
+questao_38,2024,LC,D,D,True,0.960292,1.0,ok,100 Justificativa: A resposta D) é a,,ausente
+questao_39,2024,LC,C,C,True,0.995298,1.0,ok,100 **Justificativa:** A resposta C é a,,ausente
+questao_40,2024,LC,E,E,True,0.978767,1.0,ok,100 Justificativa: A resposta E) é a,,ausente
+questao_41,2024,LC,C,C,True,0.988929,1.0,ok,100 Justificativa: A resposta C) destaca a,,ausente
+questao_42,2024,LC,D,B,False,0.456367,1.0,ok,100 Justificativa: A resposta D) é a mais,,ausente
+questao_43,2024,LC,E,E,True,0.743346,1.0,ok,"100 **Justificativa:** A resposta ""E""",,ausente
+questao_44,2024,LC,D,C,False,0.671824,1.0,ok,"100 **Justificativa:** A resposta ""D""",,ausente
+questao_45,2024,LC,C,E,False,0.948447,0.95,ok,"95 Justificativa: A) situacional, pois o",,ausente
+questao_46,2024,CH,A,A,True,0.988835,,sem_numero,"____ **Justificativa:** A resposta ""A) Soberania",,ausente
+questao_47,2024,CH,C,C,True,0.460613,,sem_numero,____ **Justificativa:** O texto aborda a necessidade de implementar,,ausente
+questao_48,2024,CH,C,B,False,0.660884,,sem_numero,"____ **Justificativa:** A resposta ""C) Consenso multip",,ausente
+questao_49,2024,CH,C,C,True,0.996962,1.0,ok,"100 **Justificativa:** O texto original, em",,ausente
+questao_50,2024,CH,B,A,False,0.329893,1.0,ok,100 Justificativa: A resposta está correta porque a,,ausente
+questao_51,2024,CH,A,D,False,0.414165,0.0,ok,0 Justificativa: A resposta é incorreta. A Constituição de,,ausente
+questao_52,2024,CH,C,C,True,0.994202,,sem_numero,____ **Explicação:** O texto descreve o processo de racioc,,ausente
+questao_53,2024,CH,C,E,False,0.834318,1.0,ok,"100 **Justificativa:** A cartografia, em",,ausente
+questao_54,2024,CH,D,D,True,0.583538,1.0,ok,"100 **Justificativa:** A resposta ""D)",,ausente
+questao_55,2024,CH,A,B,False,0.421344,1.0,ok,"100 **Justificativa:** A resposta ""A""",,ausente
+questao_56,2024,CH,A,A,True,0.996659,1.0,ok,100 **Explicação:** A resposta correta é A,,ausente
+questao_57,2024,CH,E,E,True,0.992943,,sem_numero,____ **Justificativa:** O texto descreve um sistema que se,,ausente
+questao_58,2024,CH,A,C,False,0.988936,0.0,ok,"0 Justificativa: A resposta ""A) recuperação de sua participação",,ausente
+questao_59,2024,CH,E,E,True,0.494925,,sem_numero,____ **Justificativa:** O texto enfatiza que os objetos complex,,ausente
+questao_60,2024,CH,D,D,True,0.914723,1.0,ok,100 Justificativa: A resposta D) é a,,ausente
+questao_61,2024,CH,A,A,True,0.997647,1.0,ok,"100 Justificativa: A resposta ""Cuidado,",,ausente
+questao_62,2024,CH,C,D,False,0.565929,1.0,ok,100 Justificativa: O texto descreve como o,,ausente
+questao_63,2024,CH,A,B,False,0.987413,1.0,ok,100 **Justificativa:** O texto apresenta uma linguagem,,ausente
+questao_64,2024,CH,A,A,True,0.305646,1.0,ok,"100 **Justificativa:** A resposta ""A)",,ausente
+questao_65,2024,CH,D,D,True,0.681875,1.0,ok,100 **Justificativa:** O texto original enfatiza,,ausente
+questao_66,2024,CH,C,B,False,0.989503,0.95,ok,95 Justificativa: A resposta C é a mais adequada,,ausente
+questao_67,2024,CH,B,E,False,0.446145,1.0,ok,100 Justificativa: A resposta está incorreta. A,,ausente
+questao_68,2024,CH,A,B,False,0.97208,0.0,ok,**0** **Explicação:** O Black Lives Matter é um,,ausente
+questao_70,2024,CH,A,D,False,0.864395,1.0,ok,"100 Justificativa: A resposta ""A) organização",,ausente
+questao_71,2024,CH,A,A,True,0.985668,1.0,ok,"100 Justificativa: O movimento social mencionado, Las",,ausente
+questao_73,2024,CH,A,A,True,0.66922,0.0,ok,"0 Justificativa: A resposta ""A) estatuto epistem",,ausente
+questao_74,2024,CH,B,B,True,0.860476,1.0,ok,"100 Justificativa: A resposta ""B"" é",,ausente
+questao_75,2024,CH,D,C,False,0.693358,0.95,ok,"95 Justificativa: A resposta ""D) política ind",,ausente
+questao_76,2024,CH,D,D,True,0.609841,1.0,ok,100 Justificativa: O texto apresentado é sobre a,,ausente
+questao_77,2024,CH,A,E,False,0.445632,0.0,ok,"0 Justificativa: A resposta ""A) planejamento familiar""",,ausente
+questao_79,2024,CH,C,B,False,0.316553,1.0,ok,"100 **Justificativa:** A resposta ""C""",,ausente
+questao_80,2024,CH,C,C,True,0.787969,1.0,ok,100 **Justificativa:** O texto menciona que a,,ausente
+questao_81,2024,CH,A,A,True,0.997773,1.0,ok,"100 **Justificativa:** A resposta ""A)",,ausente
+questao_82,2024,CH,A,E,False,0.895693,1.0,ok,100 Justificativa: A) A circulação de,,ausente
+questao_83,2024,CH,D,D,True,0.816359,1.0,ok,100 Justificativa: O texto Aristóteles def,,ausente
+questao_84,2024,CH,D,E,False,0.990031,1.0,ok,100 Justificativa: O texto menciona que as universidades,,ausente
+questao_85,2024,CH,B,B,True,0.506046,1.0,ok,100 Justificativa: A resposta B) é a mais,,ausente
+questao_86,2024,CH,D,B,False,0.951576,1.0,ok,100 **Justificativa:** O texto descreve a,,ausente
+questao_87,2024,CH,A,C,False,0.823033,1.0,ok,100 Explicação: A) Planícies costeiras,,ausente
+questao_88,2024,CH,D,E,False,0.845297,1.0,ok,100 **Justificativa:** O texto dos sanitar,,ausente
+questao_89,2024,CH,B,C,False,0.485901,,sem_numero,____ **Justificativa:** O texto descreve o impacto do romp,,ausente
+questao_90,2024,CH,A,E,False,0.953988,0.0,ok,"0 Justificativa: A resposta ""A) expansão estratégica",,ausente
+questao_92,2024,CN,D,D,True,0.959532,1.0,ok,100 **Justificativa:** O exoesqueleto,,ausente
+questao_94,2024,CN,A,D,False,0.63627,,sem_numero,"**Justificativa:** A resposta ""A) ósseo""",,ausente
+questao_95,2024,CN,A,D,False,0.928023,0.9,ok,**90** Justificativa: A resposta A) é,0.001507,sim_dist
+questao_96,2024,CN,A,E,False,0.483294,,sem_numero,"____ **Justificativa:** A resposta ""A) Rim"" é",,ausente
+questao_97,2024,CN,A,B,False,0.995085,,sem_numero,**Justificativa:** A rotação de culturas é um dos principais,,ausente
+questao_98,2024,CN,C,B,False,0.894358,,sem_numero,____ **Justificativa:** A confiança é alta porque a afirmação,,ausente
+questao_100,2024,CN,A,A,True,0.997292,,sem_numero,**Explicação:** A resposta correta é A) desnaturação,,ausente
+questao_107,2024,CN,E,E,True,0.846702,1.0,ok,"100 **Justificativa:** A resposta ""E""",,ausente
+questao_109,2024,CN,C,D,False,0.800921,,sem_numero,____ **Explicação:** O problema descreve um cenário onde a percep,,ausente
+questao_112,2024,CN,C,A,False,0.777236,0.0,ok,0 **Justificativa:** A técnica de PCR é usada para,,ausente
+questao_114,2024,CN,A,D,False,0.531728,1.0,ok,____ **Resposta:** 100 **Explicação:** Vamos,,ausente
+questao_115,2024,CN,D,B,False,0.595408,,sem_numero,"____ **Justificativa:** A resposta D é a mais adequada,",,ausente
+questao_117,2024,CN,A,C,False,0.648336,,sem_numero,____ **Explicação:** Vamos calcular a quantidade de metano necessária para,,ausente
+questao_119,2024,CN,C,D,False,0.961954,0.7,ok,**A) 70%** **B) 60,,ausente
+questao_121,2024,CN,D,B,False,0.642427,,sem_numero,"**Explicação:** A resposta ""D) hepatite B"" é",,ausente
+questao_127,2024,CN,D,A,False,0.618737,1.0,ok,100 Justificativa: A resposta D é a mais,,ausente
+questao_134,2024,CN,A,E,False,0.989378,,sem_numero,"**Explicação:** A resposta ""A"" está correta. Os",,ausente
+questao_136,2024,MT,C,C,True,0.428545,,sem_numero,**Justificativa:** A análise do quadro e a compreensão do tempo,,ausente
+questao_138,2024,MT,D,B,False,0.624941,,sem_numero,____ **Explicação:** A expressão V é a soma dos valores que,,ausente
+questao_140,2024,MT,C,E,False,0.955904,,sem_numero,____ **Explicação:** O problema pede para determinar a área do vão,,ausente
+questao_142,2024,MT,C,D,False,0.97549,0.7,ok,______ Resposta: ______ A) 70 B) 8,,ausente
+questao_143,2024,MT,A,B,False,0.383587,1.0,ok,100 **Explicação:** Vamos analisar o problema. O,,ausente
+questao_146,2024,MT,C,E,False,0.709336,0.9,ok,**90** **80** **70**,,ausente
+questao_147,2024,MT,C,A,False,0.570136,0.95,ok,____ **Resposta:** 95 **Explicação:** A criança,,ausente
+questao_148,2024,MT,C,D,False,0.968076,,sem_numero,____ **Explicação:** Vamos analisar o problema passo a passo:,,ausente
+questao_150,2024,MT,C,D,False,0.423396,1.0,ok,100 **Explicação:** O campo do Maracanã,0.00029,sim_dist
+questao_151,2024,MT,A,A,True,0.780789,,sem_numero,____ **Explicação:** O problema define que o artesão deve comprar,,ausente
+questao_152,2024,MT,A,B,False,0.514968,,sem_numero,____ **Explicação:** Vamos analisar o problema: * João,,ausente
+questao_155,2024,MT,A,B,False,0.631541,1.0,ok,______ **Explicação:** A soma das notas é 100,,ausente
+questao_158,2024,MT,C,C,True,0.659547,,sem_numero,** ** ** ** ** ** ** **,,ausente
+questao_159,2024,MT,C,D,False,0.950353,0.0,ok,**Justificativa:** **0** **Explicação:**,,ausente
+questao_160,2024,MT,D,C,False,0.710831,,sem_numero,______ **Explicação:** A resposta correta é D. A relação,,ausente
+questao_161,2024,MT,C,C,True,0.898337,,sem_numero,____ **Explicação:** O problema nos fornece o custo total para três,,ausente
+questao_162,2024,MT,C,E,False,0.967245,,sem_numero,______ Resposta: ______ --- **Análise da resposta:** A,,ausente
+questao_163,2024,MT,A,C,False,0.477057,,sem_numero,____ **Explicação:** Vamos analisar o problema passo a passo:,0.001414,sim_dist
+questao_164,2024,MT,E,E,True,0.536565,0.95,ok,____ **Resposta:** 95 **Justificativa:** A,,ausente
+questao_168,2024,MT,A,C,False,0.698577,0.05,ok,____ Vamos analisar o problema. Uma varanda retangular tem 5,0.001169,sim_dist
+questao_169,2024,MT,D,A,False,0.632966,1.0,ok,100 **Explicação:** A área de um triângulo,,ausente
+questao_172,2024,MT,C,C,True,0.846736,0.02,ok,____ **Explicação:** A expressão dada é: M índice 2,,ausente
+questao_173,2024,MT,C,A,False,0.451321,1.0,ok,100 **Explicação:** O contrato original estabeleceu que,,ausente
+questao_174,2024,MT,C,B,False,0.714788,,sem_numero,____ **Explicação:** Vamos analisar o problema. O engenheiro redu,,ausente
+questao_175,2024,MT,C,E,False,0.923168,,vazio,,,ausente
+questao_177,2024,MT,C,A,False,0.9957,,sem_numero,**Explicação:** O cliente deseja minimizar o valor total dos pagamentos,,ausente
+questao_178,2024,MT,C,D,False,0.991873,0.01,ok,____ **Explicação:** A escala utilizada é 1 para 4,,ausente

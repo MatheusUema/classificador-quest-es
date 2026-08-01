@@ -1,0 +1,23 @@
+# === Microdados do ENEM (pesados, regeneráveis via download do INEP) ===
+microdados_enem_*/
+
+# === Modelos de linguagem locais (pesos GGUF, muito grandes) ===
+*.gguf
+
+# === Caches / bytecode Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+
+# === Ambientes virtuais ===
+.venv/
+venv/
+env/
+
+# === Configuração local do Claude Code (específica da máquina) ===
+.claude/settings.local.json
+
+# === Diversos / SO ===
+.DS_Store
+Thumbs.db
+*.log

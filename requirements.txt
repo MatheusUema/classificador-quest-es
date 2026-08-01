@@ -1,0 +1,10 @@
+pandas>=2.0
+scikit-learn>=1.4
+scipy
+PyMuPDF>=1.23
+skl2onnx>=1.16
+onnxruntime>=1.17
+matplotlib>=3.7
+seaborn>=0.13
+joblib
+numpy
