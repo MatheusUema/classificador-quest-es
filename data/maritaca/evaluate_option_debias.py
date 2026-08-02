@@ -78,7 +78,8 @@ def eval_question(args, r):
     for s in range(K):
         perm_alts = [alts[(pos + s) % 5] for pos in range(5)]
         pos_correta = (c - s) % 5           # onde a correta caiu nesta permutação
-        rec = {"id": r["id"], "ano": r.get("ano", ""), "area": r.get("area", ""),
+        rec = {"qid": f"{r['id']}_{r.get('ano', '')}",
+               "id": r["id"], "ano": r.get("ano", ""), "area": r.get("area", ""),
                "label": label, "perm_idx": s, "pos_correta": LETTERS[pos_correta],
                "letra_escolhida": "", "conteudo_escolhido_id": "",
                "acertou": "", "conf_logprob": ""}
@@ -144,10 +145,15 @@ def aggregate_auc(rows):
 
 def debias_vote(rows, kmin):
     """Voto majoritário do CONTEÚDO escolhido por questão -> acurácia debiased +
-    acurácia de ordem única (perm 0) + consistência (>= kmin iguais das 5)."""
+    acurácia de ordem única (perm 0) + consistência (>= kmin iguais das 5).
+
+    Agrupa por `qid` (id + ano) — na base Maritaca o `id` sozinho REPETE entre os
+    anos 2022/2023/2024, o que juntaria 15 linhas na mesma "questão" e corromperia
+    a seção 4. Com qid, cada questão tem exatamente as 5 permutações."""
     byq = {}
     for x in rows:
-        byq.setdefault(x["id"], []).append(x)
+        key = x.get("qid") or f"{x.get('id', '')}_{x.get('ano', '')}"
+        byq.setdefault(key, []).append(x)
     n_deb = correct_deb = 0
     n_single = correct_single = 0
     consist_hist = Counter()      # maior contagem de um mesmo conteúdo por questão
@@ -220,7 +226,7 @@ def print_summary(rows, kmin):
 
 
 def save_detail_csv(path, rows):
-    cols = ["id", "ano", "area", "label", "perm_idx", "pos_correta",
+    cols = ["qid", "id", "ano", "area", "label", "perm_idx", "pos_correta",
             "letra_escolhida", "conteudo_escolhido_id", "acertou", "conf_logprob"]
     with open(path, "w", encoding="utf-8", newline="") as f:
         wr = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")

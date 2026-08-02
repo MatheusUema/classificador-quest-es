@@ -11,7 +11,7 @@ Para isso testamos a hipótese de que a **confiança do modelo** (derivada dos *
 51%). A lição para o método de transição: **um limiar único de confiança não basta**; a melhor política simulada combina uma **regra por área** (sempre escalar Ciências/Matemática)
 com confiança dentro de Linguagens/Humanas.
 
-Ampliando a avaliação para **quatro modelos locais** no mesmo harness (§5), o quadro muda de forma importante. O **Qwen2.5-1.5B domina** em todos os eixos: maior acurácia (**47,8%**), maior AUC (**0,789** — o único acima de 0,7) e excelente calibração (**ECE 0,064**). E a superconfiança severa do Gemma (ECE 0,41) revela-se **específica dele**, não uma lei dos modelos pequenos: Qwen e Llama são bem calibrados em MCQ (ECE 0,05–0,10). Matemática segue sendo o **calcanhar universal** (AUC ≈ aleatória em todos os modelos), reforçando escalar MT por padrão. Recomendação de pesquisa → produto: o **Qwen2.5-1.5B é o melhor candidato ao tier local**; o **Gemma-3-1B**, fixado nos docs originais, é o **pior** para roteamento por confiança. Por fim, comparando **três sinais de confiança** (logprob vs verbalizada vs P(True); §5.8), o **logprob vence nos dois modelos** — verbalizada e P(True) são piores ou inviáveis de capturar em 1–1,5B, **contrariando** a vantagem da confiança verbalizada relatada por Tian et al. (2023) para modelos grandes: no on-device, fica-se com o logprob.
+Ampliando a avaliação para **quatro modelos locais** no mesmo harness (§5), o quadro muda de forma importante. O **Qwen2.5-1.5B domina** em todos os eixos: maior acurácia (**47,8%**), maior AUC (**0,789** — o único acima de 0,7) e excelente calibração (**ECE 0,064**). E a superconfiança severa do Gemma (ECE 0,41) revela-se **específica dele**, não uma lei dos modelos pequenos: Qwen e Llama são bem calibrados em MCQ (ECE 0,05–0,10). Matemática segue sendo o **calcanhar universal** (AUC ≈ aleatória em todos os modelos), reforçando escalar MT por padrão. Recomendação de pesquisa → produto: o **Qwen2.5-1.5B é o melhor candidato ao tier local**; o **Gemma-3-1B**, fixado nos docs originais, é o **pior** para roteamento por confiança. Comparando **três sinais de confiança** (logprob vs verbalizada vs P(True); §5.8), o **logprob vence nos dois modelos** — verbalizada e P(True) são piores ou inviáveis de capturar em 1–1,5B, **contrariando** a vantagem da confiança verbalizada relatada por Tian et al. (2023) para modelos grandes: no on-device, fica-se com o logprob. Por fim, um teste de **robustez de opção** (§5.9) fecha a principal objeção metodológica de MCQ: reavaliando o Qwen2.5-1.5B em **5 permutações cíclicas** das alternativas, confirma-se um **viés de posição forte** (χ²(4)=993,7; o modelo escolhe "E" em 46,4% das vezes; ~50 pontos de acurácia conforme a posição da correta) — **mas o sinal de confiança sobrevive**: a AUC do logprob cai apenas de 0,79 para **0,753** ao randomizar a ordem, provando que **não é artefato** da ordem fixa. Melhor ainda, o **debiasing por voto majoritário** nas 5 permutações **eleva a acurácia de 47,8% para 55,3% (+7,5 pontos)** — vira técnica prática, não só controle. Fica a ressalva de que os números de **ordem única** de todos os modelos embutem esse viés: a AUC **honesta** do sinal é **~0,75**.
 
 ---
 
@@ -270,6 +270,54 @@ Combinando tudo: o **Qwen2.5-1.5B é o melhor candidato ao tier local**, pois do
 
 **5. Conclusão — o sinal ótimo depende do tamanho do modelo.** Estes números **contradizem**, no regime on-device (1–1,5B), a vantagem da **confiança verbalizada** relatada por **Tian et al. (EMNLP 2023)** para modelos **grandes** alinhados: aqui o **logprob é o melhor sinal**, e verbalizada/P(True) são piores ou inviáveis de capturar. A escolha do sinal de transição, portanto, **não é universal — depende da escala do modelo**; para o tier local pequeno, fica-se com o logprob.
 
+### 5.9 Debiasing de opção: o modelo tem viés de posição — mas o sinal de confiança sobrevive
+
+*O que esta seção responde: toda a análise até aqui usou a resposta do modelo numa **ordem fixa** de alternativas (a ordem da Maritaca). E se essa ordem estiver, ela mesma, enviesando os resultados? Um modelo que prefere sistematicamente uma **posição** (ex.: "a última alternativa") pode acertar ou errar por **onde** a resposta certa caiu, não por competência — e, pior, o **sinal de confiança** poderia ser um artefato dessa ordem fixa.* Este é o teste que fecha a principal objeção metodológica a qualquer avaliação de múltipla escolha (MCQ). Reapresentamos ao **Qwen2.5-1.5B** as mesmas **389 questões**, cada uma em **5 permutações cíclicas** da ordem das cinco alternativas (A→B→C→D→E→A…), mantendo o conteúdo idêntico e só mudando a **letra** em que cada conteúdo aparece. Isso permite três medidas independentes: (i) o modelo tem viés de posição? (ii) esse viés contamina a acurácia? (iii) o sinal de confiança é robusto à ordem?
+
+**1. Viés de posição: forte, monotônico, e o modelo "ama" a letra E.** Contando com que **letra** o modelo respondeu (agregando as 5 permutações, onde por construção cada posição é igualmente "correta" no total), a distribuição deveria ser ~20% por letra se não houvesse viés. Não é o que ocorre:
+
+| Letra escolhida | A | B | C | D | E |
+|---|---:|---:|---:|---:|---:|
+| Frequência | 5,6% | 12,7% | 12,5% | 22,8% | **46,4%** |
+
+O padrão é **monotônico e gritante** (A < B ≈ C < D < **E**): o modelo escolhe a última posição **quase metade** das vezes e a primeira em **1 de cada 18**. Um teste **qui-quadrado de aderência** contra o uniforme dá **χ²(4) = 993,7** — descomunalmente acima do valor crítico (~9,5 a 5%), confirmando que a preferência por posição é real, não ruído amostral. É exatamente o **viés de posição / seleção por token** documentado por **Zheng et al. (ICLR 2024)** em LLMs como juízes/respondedores de MCQ.
+
+**2. O viés contamina a acurácia: ~50 pontos conforme onde a resposta certa cai.** Se o modelo prefere posições, ele acerta mais quando o gabarito **calha** de estar na posição preferida. Medindo a acurácia condicionada à **posição da alternativa correta**:
+
+| Posição da correta | A | B | C | D | E |
+|---|---:|---:|---:|---:|---:|
+| Acurácia | 24,4% | 43,7% | 43,7% | 62,7% | **75,3%** |
+
+O *spread* é de **~50 pontos** (24,4% → 75,3%): a mesma questão, com o mesmo conteúdo correto, é ~3× mais provável de ser acertada se a resposta certa estiver em **E** do que em **A**. Ou seja, **parte da "acurácia" medida em ordem única é um artefato de sorte posicional**, não competência — e isso vale para *todos* os números de ordem única deste documento.
+
+**3. O ponto-chave: o sinal de confiança é ROBUSTO à ordem (não é artefato).** Esta é a medida que mais importa para a tese do roteamento. Calculamos a **AUC do logprob agregada nas 5 permutações** — isto é, o poder do sinal de separar acerto de erro quando a ordem das alternativas varia livremente:
+
+| Configuração | AUC do logprob |
+|---|---:|
+| Ordem única (ordem fixa da Maritaca) | 0,793 |
+| **Agregada nas 5 permutações** | **0,753** |
+
+A queda é de **apenas ~0,04**. Traduzindo: mesmo embaralhando a ordem das alternativas — o que destrói qualquer vantagem que a ordem fixa pudesse dar —, o logprob **continua separando acerto de erro acima do piso de "útil" (0,7)**. **O sinal de confiança não é um artefato da ordem fixa da Maritaca; é uma propriedade do modelo.** Isto **fecha a objeção metodológica** que pairava sobre todo o estudo: a AUC ~0,79 da §5 não vinha "de graça" da ordem — a AUC **honesta**, livre de viés de ordem, é **~0,75**.
+
+**4. Debiasing melhora a acurácia — vira técnica prática, não só controle.** Como sabemos qual **conteúdo** o modelo escolheu em cada permutação (não só a letra), podemos aplicar **voto majoritário do conteúdo** nas 5 ordens: a resposta final é o conteúdo mais escolhido, independentemente da letra em que apareceu. Isso **cancela** o viés de posição por desenho. O efeito na acurácia:
+
+| Método | Acurácia |
+|---|---:|
+| Ordem única | 47,8% |
+| **Voto majoritário do conteúdo (5 permutações)** | **55,3%** |
+
+Um ganho de **+7,5 pontos** — o debiasing não é apenas um *controle* para provar que o viés existe; é uma **técnica de inferência** que remove o confundidor **e** eleva a acurácia, à custa de 5× mais chamadas (viável em pré-processamento/servidor, não no celular).
+
+**5. Quão instável é a resposta? O viés muda o resultado em >75% das questões.** Olhando a **consistência** — em quantas das 5 permutações o modelo escolheu o **mesmo conteúdo**:
+
+- em **61,4%** das questões o conteúdo majoritário aparece em **≥3 das 5** ordens (maioria estável);
+- mas só **22% (85/389)** são **totalmente consistentes** (o mesmo conteúdo nas **5/5**);
+- e **41 questões** são **totalmente inconsistentes** (nenhum conteúdo se repete de forma dominante).
+
+Ou seja, em **mais de 75% das questões** a simples troca da ordem das alternativas **altera** a resposta do modelo — uma medida direta e desconfortável de quão frágil é uma leitura de MCQ em ordem única.
+
+**Conclusão da §5.9.** O viés de posição do Qwen2.5-1.5B é **real e grande** (χ² = 993,7; ~50 pontos de acurácia dependendo da posição da correta; a resposta muda em >75% das questões ao reordenar). **Mas** — e este é o resultado que sustenta o projeto — **o sinal de confiança sobrevive**: a AUC do logprob cai só de 0,79 para **0,75** ao randomizar a ordem, permanecendo útil. E o **debiasing por permutação** não só remove o confundidor como **melhora a acurácia em +7,5 pontos**, tornando-se uma técnica prática. **Ressalva a carregar para todo o documento:** os números de **ordem única** de *todos* os modelos (§4 e §5) embutem esse viés de posição; a estimativa **honesta** do poder do sinal, livre do viés de ordem, é a **AUC ~0,75**.
+
 ---
 
 ## 6. Discussão e limitações
@@ -293,8 +341,9 @@ Vários fatores restringem o alcance destas conclusões, e é importante nomeá-
 3. **A área é um sinal forte e barato, e Matemática é o calcanhar universal.** O local fica ~acaso em CN/MT em todos os modelos, e a AUC de MT é ~aleatória (0,46–0,53) para todos — então "sempre escalar CN/MT" vale independentemente do modelo escolhido.
 4. **A melhor política é híbrida** (área + confiança dentro de LC/CH) e o **limiar ótimo depende do orçamento** de escalonamento — e, pela §5.5, **é calibrado por modelo** (os limiares vão de ~0,35 a ~0,98): confiança bruta não é comparável entre modelos, só a AUC/curva risco-cobertura.
 5. **On-device, o logprob é o melhor sinal de confiança** (§5.8): vence a confiança verbalizada e a P(True) nos dois modelos (AUC 0,79 e 0,67), **contrariando** — na escala 1–1,5B — a vantagem da verbalizada reportada por Tian et al. (2023) para modelos grandes. Verbalizada é fraca/superconfiante (e o Gemma nem sempre emite o número), e P(True) é inviável de capturar nesses modelos. A escolha do sinal **depende do tamanho do modelo**.
-6. **Rótulo importa**: dificuldade humana (IRT) ≠ dificuldade para a LLM; calibrar por acerto do modelo é o caminho certo.
-7. **O runtime de medição importa**: sem *logprobs* (MediaPipe/Firebase), não há confiança on-device — uma restrição de engenharia que o método de transição precisa contornar.
+6. **O sinal de confiança é robusto ao viés de posição — e o debiasing é técnica prática (§5.9).** O Qwen2.5-1.5B tem viés de posição **forte** (χ²(4)=993,7; escolhe "E" em 46,4% das vezes; ~50 pontos de acurácia conforme onde cai a correta; a resposta muda em >75% das questões ao reordenar). Ainda assim, a AUC do logprob cai só de 0,79 para **0,753** ao randomizar a ordem — o sinal **não é artefato** da ordem fixa da Maritaca. E o **voto majoritário do conteúdo** nas 5 permutações **remove o confundidor e eleva a acurácia +7,5 pontos** (47,8%→55,3%). Ressalva: os números de **ordem única** de todos os modelos embutem esse viés — a AUC **honesta** do sinal é **~0,75**.
+7. **Rótulo importa**: dificuldade humana (IRT) ≠ dificuldade para a LLM; calibrar por acerto do modelo é o caminho certo.
+8. **O runtime de medição importa**: sem *logprobs* (MediaPipe/Firebase), não há confiança on-device — uma restrição de engenharia que o método de transição precisa contornar.
 
 ---
 
@@ -317,3 +366,12 @@ O tier local do app (`MediaPipeLocalInferenceService.generate()`) chama `LlmInfe
   `fig_cmp_auc_global.png`.
 - Modelos avaliados (todos Q4_K_M via `llama-server`, `temperature = 0`): **Gemma-3-1B-IT**,
   **Qwen2.5-0.5B-Instruct**, **Qwen2.5-1.5B-Instruct**, **Llama-3.2-1B-Instruct**.
+- **Sinais de confiança (§5.8):** `data/maritaca/evaluate_verbalized_confidence.py` →
+  `data/maritaca/verbalized_vs_logprob_<rótulo>.csv`.
+- **Debiasing de opção (§5.9):** `data/maritaca/evaluate_option_debias.py` reavalia cada questão
+  em 5 permutações cíclicas das alternativas → `data/maritaca/resultados_debias_qwen2.5-1.5b.csv`
+  (detalhe por permutação) e `data/maritaca/debias_resumo_qwen2.5-1.5b.csv` (métricas agregadas:
+  frequência por posição, χ², acurácia por posição, AUC agregada, acurácia debiased, consistência).
+  A seção de acurácia debiased/consistência pode ser recalculada offline a partir do CSV de detalhe
+  com `data/maritaca/recompute_debias.py` (reconstrói a questão por `id`+`ano`, corrigindo o
+  agrupamento por permutação).
