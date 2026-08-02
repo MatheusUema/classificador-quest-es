@@ -11,7 +11,7 @@ Para isso testamos a hipótese de que a **confiança do modelo** (derivada dos *
 51%). A lição para o método de transição: **um limiar único de confiança não basta**; a melhor política simulada combina uma **regra por área** (sempre escalar Ciências/Matemática)
 com confiança dentro de Linguagens/Humanas.
 
-Ampliando a avaliação para **quatro modelos locais** no mesmo harness (§5), o quadro muda de forma importante. O **Qwen2.5-1.5B domina** em todos os eixos: maior acurácia (**47,8%**), maior AUC (**0,789** — o único acima de 0,7) e excelente calibração (**ECE 0,064**). E a superconfiança severa do Gemma (ECE 0,41) revela-se **específica dele**, não uma lei dos modelos pequenos: Qwen e Llama são bem calibrados em MCQ (ECE 0,05–0,10). Matemática segue sendo o **calcanhar universal** (AUC ≈ aleatória em todos os modelos), reforçando escalar MT por padrão. Recomendação de pesquisa → produto: o **Qwen2.5-1.5B é o melhor candidato ao tier local**; o **Gemma-3-1B**, fixado nos docs originais, é o **pior** para roteamento por confiança. Comparando **três sinais de confiança** (logprob vs verbalizada vs P(True); §5.8), o **logprob vence nos dois modelos** — verbalizada e P(True) são piores ou inviáveis de capturar em 1–1,5B, **contrariando** a vantagem da confiança verbalizada relatada por Tian et al. (2023) para modelos grandes: no on-device, fica-se com o logprob. Por fim, um teste de **robustez de opção** (§5.9) fecha a principal objeção metodológica de MCQ: reavaliando o Qwen2.5-1.5B em **5 permutações cíclicas** das alternativas, confirma-se um **viés de posição forte** (χ²(4)=993,7; o modelo escolhe "E" em 46,4% das vezes; ~50 pontos de acurácia conforme a posição da correta) — **mas o sinal de confiança sobrevive**: a AUC do logprob cai apenas de 0,79 para **0,753** ao randomizar a ordem, provando que **não é artefato** da ordem fixa. Melhor ainda, o **debiasing por voto majoritário** nas 5 permutações **eleva a acurácia de 47,8% para 55,3% (+7,5 pontos)** — vira técnica prática, não só controle. Fica a ressalva de que os números de **ordem única** de todos os modelos embutem esse viés: a AUC **honesta** do sinal é **~0,75**.
+Ampliando a avaliação para **quatro modelos locais** no mesmo harness (§5), o quadro muda de forma importante. O **Qwen2.5-1.5B domina** em todos os eixos: maior acurácia (**47,8%**), maior AUC (**0,789** — o único acima de 0,7) e excelente calibração (**ECE 0,064**). E a superconfiança severa do Gemma (ECE 0,41) revela-se **específica dele**, não uma lei dos modelos pequenos: Qwen e Llama são bem calibrados em MCQ (ECE 0,05–0,10). Matemática segue sendo o **calcanhar universal** (AUC ≈ aleatória em todos os modelos), reforçando escalar MT por padrão. Recomendação de pesquisa → produto: o **Qwen2.5-1.5B é o melhor candidato ao tier local**; o **Gemma-3-1B**, fixado nos docs originais, é o **pior** para roteamento por confiança. Comparando **três sinais de confiança** (logprob vs verbalizada vs P(True); §5.8), o **logprob vence nos dois modelos** — verbalizada e P(True) são piores ou inviáveis de capturar em 1–1,5B, **contrariando** a vantagem da confiança verbalizada relatada por Tian et al. (2023) para modelos grandes: no on-device, fica-se com o logprob. Por fim, um teste de **robustez de opção** (§5.9) fecha a principal objeção metodológica de MCQ: reavaliando o Qwen2.5-1.5B em **5 permutações cíclicas** das alternativas, confirma-se um **viés de posição forte** (χ²(4)=993,7; o modelo escolhe "E" em 46,4% das vezes; ~50 pontos de acurácia conforme a posição da correta) — **mas o sinal de confiança sobrevive**: a AUC do logprob cai apenas de 0,79 para **0,753** ao randomizar a ordem, provando que **não é artefato** da ordem fixa. Melhor ainda, o **debiasing por voto majoritário** nas 5 permutações **eleva a acurácia de 47,8% para 55,3% (+7,5 pontos)** — vira técnica prática, não só controle. Fica a ressalva de que os números de **ordem única** de todos os modelos embutem esse viés: a AUC **honesta** do sinal é **~0,75**. Por fim, adicionamos um **ponto de tier servidor** (Qwen2.5-7B, §6): a acurácia salta para **73,5%** e a AUC para **0,851** — o **gradiente local→servidor** (acurácia e sinal subindo juntos, de 0,5B a 7B) confirma empiricamente a premissa da elasticidade.
 
 ---
 
@@ -22,7 +22,7 @@ educacional com IA deve expandir sua capacidade conforme a infraestrutura dispon
 nuvem quando houver internet — **sem degradar** a experiência offline-first. O componente difícil dessa visão não é possuir três modelos; é o **método de transição**: decidir, a cada pergunta do aluno, se o modelo do tier atual já respondeu bem o suficiente ou se vale
 "escalar" para um tier mais capaz — **conservando desempenho pedagógico e custo** (energia, latência, conectividade).
 
-Toda essa arquitetura repousa numa hipótese operacional: **a confiança do próprio modelo é um sinal útil para decidir escalar.** Este documento testa essa hipótese empiricamente. Como o tier local de produção (MediaPipe) não expõe os números internos necessários (ver §8), medimos com o `llama.cpp`, que os expõe, num modelo local candidato — obtendo (i) a competência do modelo (acurácia) e (ii) o poder do sinal de confiança para separar acertos
+Toda essa arquitetura repousa numa hipótese operacional: **a confiança do próprio modelo é um sinal útil para decidir escalar.** Este documento testa essa hipótese empiricamente. Como o tier local de produção (MediaPipe) não expõe os números internos necessários (ver §9), medimos com o `llama.cpp`, que os expõe, num modelo local candidato — obtendo (i) a competência do modelo (acurácia) e (ii) o poder do sinal de confiança para separar acertos
 de erros. São exatamente os insumos para calibrar as regras de roteamento.
 
 ---
@@ -320,12 +320,41 @@ Ou seja, em **mais de 75% das questões** a simples troca da ordem das alternati
 
 ---
 
-## 6. Discussão e limitações
+## 6. Tier servidor: o salto do Qwen2.5-7B
+
+*O que esta seção responde: quanto se ganha ao escalar do tier local para um tier servidor, e a confiança continua útil no modelo maior?* Rodamos o **Qwen2.5-7B-Instruct Q4_K_M** no mesmo harness (389 questões de texto puro, `temperature = 0`, `n_predict = 4`), agora com **GPU (RTX 4060, build CUDA do `llama.cpp`, `--n-gpu-layers 99`)**, como ponto de **tier servidor** ao lado dos quatro locais.
+
+O salto de competência é grande: **acurácia global 73,5%** (286/389), contra 47,8% do melhor local (Qwen2.5-1.5B). E o sinal de confiança melhora junto — **AUC global 0,851**, o mais alto de todos —, com confiança média **0,893 nos acertos** vs **0,658 nos erros**, e calibração ainda boa (**ECE 0,098**).
+
+| Área | n | Acurácia 7B | vs 1,5B local |
+|---|---:|---:|---:|
+| CH (Humanas) | 117 | 94,9% | +29,9 pts |
+| LC (Linguagens) | 112 | 80,4% | +27,7 pts |
+| CN (Natureza) | 77 | 75,3% | +32,4 pts |
+| MT (Matemática) | 83 | 32,5% | +10,8 pts |
+
+Mesmo o 7B tropeça em **Matemática (32,5%)** — o calcanhar universal persiste, embora menos severo. Para o roteamento, a varredura de limiar sugere **`confidenceThresholdHigh ≈ 0,85`** (Youden J = 0,646; TPR 0,85, FPR 0,20); aceitar respostas com confiança ≥ 0,729 já daria **84,6%** de acurácia na decisão de aceitar-vs-escalar. O IRT segue sendo proxy fraco também aqui (Spearman dificuldade×acerto = **−0,446**, dificuldade×confiança = **−0,423**), reforçando §3.3/§4.4.
+
+### 6.1 O gradiente local → servidor
+
+Juntando os cinco modelos (`comparativo_modelos.csv`), o gradiente de elasticidade fica explícito — acurácia e qualidade do sinal sobem **juntas** ao escalar de tier:
+
+| Métrica | gemma-3-1b | llama-3.2-1b | qwen2.5-0.5b | qwen2.5-1.5b | **qwen2.5-7b** |
+|---|---:|---:|---:|---:|---:|
+| Acurácia global | 37,3% | 39,8% | 30,6% | 47,8% | **73,5%** |
+| AUC global | 0,671 | 0,695 | 0,678 | 0,789 | **0,851** |
+| ECE | 0,411 | 0,102 | 0,050 | 0,064 | 0,098 |
+
+Isto valida empiricamente a premissa central da elasticidade: escalar de tier entrega ganho real de competência (**+25,7 pts** de acurácia, do melhor local ao servidor) e o **sinal de confiança que decide *quando* escalar permanece informativo no tier de destino** (AUC 0,85). As figuras `fig_cmp_acc_area.png` e `fig_cmp_auc_global.png` (agora com os cinco modelos) mostram o gradiente. **Ressalva:** o 7B é um único ponto de servidor (Q4_K_M em GPU de 8 GB) — demonstra o gradiente, não é o teto de um servidor real.
+
+---
+
+## 7. Discussão e limitações
 
 Vários fatores restringem o alcance destas conclusões, e é importante nomeá-los:
 
 - **A escolha do modelo domina os números.** A análise detalhada da §4 é do Gemma-3-1B-Q4_K_M, mas a §5 mostra que acurácia, AUC, ECE e limiares **variam muito entre modelos** — o Qwen2.5-1.5B, por exemplo, é melhor em **todos** os eixos. Nenhum número absoluto da §4 deve ser generalizado para "o tier local"; ele é do Gemma.
-- **Medimos com um *proxy* do tier local.** Usamos `llama.cpp` porque ele expõe *logprobs*, mas o tier local do app roda **MediaPipe**, cujo `generateResponse()` devolve só texto e **não expõe *logprobs*** (ver §8). Logo, a confiança medida é do *runtime substituto*; no app atual ela não seria calculável on-device sem trocar o runtime.
+- **Medimos com um *proxy* do tier local.** Usamos `llama.cpp` porque ele expõe *logprobs*, mas o tier local do app roda **MediaPipe**, cujo `generateResponse()` devolve só texto e **não expõe *logprobs*** (ver §9). Logo, a confiança medida é do *runtime substituto*; no app atual ela não seria calculável on-device sem trocar o runtime.
 - **A confiança fraca e mal calibrada da §4 é do Gemma — não uma lei dos modelos pequenos.** Para o Gemma, AUC global 0,66, nula em MT, e ECE 0,41. Mas a §5 deixa claro que a **superconfiança severa é específica do Gemma**: Qwen e Llama, do mesmo porte, têm ECE 0,05–0,10 (bem calibrados em MCQ) e AUC até 0,79. A generalização segura é mais estreita: **em MT a confiança é ~inútil em todos os modelos**; fora de MT, a qualidade do sinal **depende fortemente do modelo**.
 - **Possível contaminação de treino.** O ENEM é público; o modelo pode tê-lo visto no treino, o que inflaria a competência medida (embora a acurácia baixa sugira contaminação limitada para este modelo).
 - **A área é verdade-fundamental.** A política D usa a área correta, conhecida no dataset. Em produção, o app **não sabe** a área da pergunta do aluno; usá-la exigiria seleção na UI ou um classificador de área.
@@ -334,7 +363,7 @@ Vários fatores restringem o alcance destas conclusões, e é importante nomeá-
 
 ---
 
-## 7. Principais lições
+## 8. Principais lições
 
 1. **A qualidade do sinal de confiança é propriedade do modelo, não do método.** Entre quatro modelos locais (§5), a AUC global vai de 0,67 a **0,79** e o ECE de **0,05** a **0,41** — logo, "a confiança não presta para roteamento" era uma conclusão sobre o **Gemma**, não sobre a abordagem.
 2. **O melhor candidato local é o Qwen2.5-1.5B**, que domina acurácia (47,8%) e sinal (AUC 0,789, ECE 0,064); o **Gemma-3-1B** (fixado nos docs originais) é o **pior** para roteamento por confiança. E **tamanho ajuda**: no Qwen, 0,5B→1,5B eleva acurácia (30,6→47,8%) e AUC (0,68→0,79) juntas.
@@ -344,10 +373,11 @@ Vários fatores restringem o alcance destas conclusões, e é importante nomeá-
 6. **O sinal de confiança é robusto ao viés de posição — e o debiasing é técnica prática (§5.9).** O Qwen2.5-1.5B tem viés de posição **forte** (χ²(4)=993,7; escolhe "E" em 46,4% das vezes; ~50 pontos de acurácia conforme onde cai a correta; a resposta muda em >75% das questões ao reordenar). Ainda assim, a AUC do logprob cai só de 0,79 para **0,753** ao randomizar a ordem — o sinal **não é artefato** da ordem fixa da Maritaca. E o **voto majoritário do conteúdo** nas 5 permutações **remove o confundidor e eleva a acurácia +7,5 pontos** (47,8%→55,3%). Ressalva: os números de **ordem única** de todos os modelos embutem esse viés — a AUC **honesta** do sinal é **~0,75**.
 7. **Rótulo importa**: dificuldade humana (IRT) ≠ dificuldade para a LLM; calibrar por acerto do modelo é o caminho certo.
 8. **O runtime de medição importa**: sem *logprobs* (MediaPipe/Firebase), não há confiança on-device — uma restrição de engenharia que o método de transição precisa contornar.
+9. **O gradiente local→servidor é real e mensurável (§6):** do melhor local (Qwen2.5-1.5B, 47,8%) ao tier servidor (Qwen2.5-7B, 73,5%) são **+25,7 pts** de acurácia, com a AUC de confiança subindo a **0,851** — a premissa da elasticidade se sustenta, e o sinal que decide *quando* escalar continua útil no tier de destino.
 
 ---
 
-## 8. Nota técnica: por que o tier local (MediaPipe) não dá logprobs
+## 9. Nota técnica: por que o tier local (MediaPipe) não dá logprobs
 
 O tier local do app (`MediaPipeLocalInferenceService.generate()`) chama `LlmInferenceSession.generateResponse()`, que retorna **apenas uma `String`** — as opções da API configuram parâmetros de *entrada* (temperatura, top-k, top-p), mas a saída não inclui *logprobs*, logits ou scores por token. Por isso o app **não calcula confiança no tier local** hoje (o roteador registra `confidence = −1`, método `"none"`), e por isso esta avaliação usou `llama.cpp` como substrato de medição. Obter confiança on-device exigiria um runtime que exponha logits (ex.: `llama.cpp` via JNI) — é uma decisão de engenharia separada do resultado de pesquisa.
 
@@ -365,7 +395,11 @@ O tier local do app (`MediaPipeLocalInferenceService.generate()`) chama `LlmInfe
   `data/maritaca/comparativo_modelos.csv` e `data/maritaca/analise/fig_cmp_acc_area.png`,
   `fig_cmp_auc_global.png`.
 - Modelos avaliados (todos Q4_K_M via `llama-server`, `temperature = 0`): **Gemma-3-1B-IT**,
-  **Qwen2.5-0.5B-Instruct**, **Qwen2.5-1.5B-Instruct**, **Llama-3.2-1B-Instruct**.
+  **Qwen2.5-0.5B-Instruct**, **Qwen2.5-1.5B-Instruct**, **Llama-3.2-1B-Instruct** (tier local) e
+  **Qwen2.5-7B-Instruct** (tier servidor, §6 — build CUDA do `llama.cpp`, `--n-gpu-layers 99`, GPU RTX 4060).
+- **Tier servidor (§6):** `evaluate_local_accuracy.py --model-name qwen2.5-7b` →
+  `resultados_acerto_qwen2.5-7b.csv`; `aggregate_multimodel.py` consolida os 5 modelos em
+  `comparativo_modelos.csv` (gradiente local→servidor).
 - **Sinais de confiança (§5.8):** `data/maritaca/evaluate_verbalized_confidence.py` →
   `data/maritaca/verbalized_vs_logprob_<rótulo>.csv`.
 - **Debiasing de opção (§5.9):** `data/maritaca/evaluate_option_debias.py` reavalia cada questão
