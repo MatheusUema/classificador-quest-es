@@ -24,6 +24,10 @@ histograma de concordância (agora <= 5). Só stdlib.
 Uso:
   python recompute_debias.py --in resultados_debias_qwen2.5-1.5b.csv
   python recompute_debias.py --in resultados_debias_qwen2.5-1.5b.csv --kmin 3
+  # sobrescreve o CSV de resumo com a secao 4 CORRIGIDA (id+ano), preservando
+  # as metricas de posicao/chi2/AUC que ja estavam corretas:
+  python recompute_debias.py --in resultados_debias_qwen2.5-1.5b.csv \
+      --write-resumo debias_resumo_qwen2.5-1.5b.csv
 """
 
 import argparse
@@ -128,6 +132,64 @@ def section4(glist, kmin):
     }
 
 
+def write_resumo(out_path, S):
+    """Sobrescreve o CSV de resumo com a SECAO 4 corrigida (agrupamento id+ano).
+
+    Preserva as metricas ja corretas do resumo existente (frequencia por posicao,
+    qui-quadrado, acuracia por posicao da correta, AUC agregada) e substitui apenas
+    as tres metricas da secao 4 que o bug de agrupamento por `id` distorcia
+    (acc_ordem_unica, acc_debiased_voto5, frac_consistencia_ge_<k>). Acrescenta o
+    histograma de concordancia (<=5), o n de questoes e um marcador de versao.
+    """
+    out_path = Path(out_path)
+    existing, order = {}, []
+    # chaves "gerenciadas" por esta funcao — descartadas ao ler para manter a
+    # operacao idempotente (evita histograma duplicado / nomenclatura antiga como
+    # hist_concordancia_* ao re-rodar).
+    def is_managed(m):
+        return (m.startswith("hist_") or m.startswith("hist_conteudo_")
+                or m in ("n_questoes", "agrupamento_secao4"))
+    if out_path.exists():
+        for r in read_rows(out_path):
+            m = (r.get("metrica") or "").strip()
+            if m and m not in existing and not is_managed(m):
+                order.append(m)
+                existing[m] = (r.get("valor") or "").strip()
+
+    # secao 4 corrigida (substitui os valores antigos, id-only)
+    fixed = {
+        "acc_ordem_unica": f"{S['acc_single']:.4f}",
+        "acc_debiased_voto5": f"{S['acc_debiased']:.4f}",
+        f"frac_consistencia_ge_{S['kmin']}": f"{S['frac_consist_ge']:.4f}",
+    }
+    # metricas novas (histograma, n, marcador de versao/agrupamento)
+    extras = []
+    for k in range(1, 6):
+        extras.append((f"hist_conteudo_{k}de5", str(S["consist_hist"].get(k, 0))))
+    extras.append(("n_questoes", str(S["n_grupos"])))
+    extras.append(("agrupamento_secao4", "id+ano (corrigido)"))
+
+    for m, v in fixed.items():
+        if m in existing:
+            existing[m] = v
+        else:
+            order.append(m)
+            existing[m] = v
+    for m, v in extras:
+        if m in existing:
+            existing[m] = v
+        else:
+            order.append(m)
+            existing[m] = v
+
+    with open(out_path, "w", encoding="utf-8", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["metrica", "valor"])
+        for m in order:
+            w.writerow([m, existing[m]])
+    print(f"Resumo corrigido gravado em: {out_path}")
+
+
 def main():
     ap = argparse.ArgumentParser(
         description="Recalcula a secao 4 (debiased/consistencia) de um CSV de debiasing.")
@@ -136,6 +198,9 @@ def main():
                     help="CSV de detalhe (resultados_debias_<model>.csv)")
     ap.add_argument("--kmin", type=int, default=3,
                     help="k da consistencia (mesmo conteudo em >= k das 5). Default 3")
+    ap.add_argument("--write-resumo", dest="resumo_out", default=None,
+                    help="Sobrescreve este CSV de resumo com a secao 4 corrigida "
+                         "(id+ano), preservando as metricas de posicao/chi2/AUC.")
     args = ap.parse_args()
 
     path = Path(args.inp)
@@ -165,6 +230,9 @@ def main():
           f"{S['frac_consist_ge']*100:.1f}% das questoes")
     print(f"Histograma de concordancia (max iguais das 5): {S['consist_hist']}")
     print("=" * 60)
+
+    if args.resumo_out:
+        write_resumo(args.resumo_out, S)
     return 0
 
 

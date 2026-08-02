@@ -16,11 +16,6 @@ n_auc,1945
 acc_ordem_unica,0.4781
 acc_debiased_voto5,0.5527
 frac_consistencia_ge_3,0.6144
-hist_concordancia_1,41
-hist_concordancia_2,109
-hist_concordancia_3,78
-hist_concordancia_4,76
-hist_concordancia_5,85
 hist_conteudo_1de5,41
 hist_conteudo_2de5,109
 hist_conteudo_3de5,78
